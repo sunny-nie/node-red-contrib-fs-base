@@ -16,10 +16,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "node-red": {
+    "version": ">=4.1.7",
     "nodes": {
       "fs-read-dir": "nodes/function/fs-read-dir.js",
       "fs-exists": "nodes/function/fs-exists.js"
     }
+  },
+  "engines": {
+    "node": ">=18.16.1"
   },
   "repository": {
     "type": "git",
