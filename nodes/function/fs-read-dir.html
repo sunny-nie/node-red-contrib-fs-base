@@ -1,0 +1,136 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fs read dir', {
+        // en: node-red left sidebar category
+        // zh: node-red左边所属分类
+        category: 'sunny nie',
+        // en: node background color
+        // zh: 节点背景颜色
+        color: '#FFCC66',
+        defaults: {
+            name: { value: "fs read dir" },
+            dir: { value: "" },
+            dirType: { value: "str" },
+            // recursive: { value: "false" },
+            // withFileTypes: { value: "false" },
+            absolute: { value: true },
+            useFilter: { value: false },
+            filter: { value: "json" },
+            fileType: { value: "file" }
+        },
+        inputs: 1,
+        outputs: 1,
+        // Font Awesome Icons(https://fontawesome.com/v4/icons)
+        icon: "font-awesome/fa-folder-open-o",
+        label: function () {
+            return this.name || "fs read dir";
+        },
+        oneditprepare: function () {
+            // console.log(this);
+            // use filter checkbox control display
+            $("#node-input-useFilter").on("change", (e) => {
+                // checked to display
+                if (e.target.checked) {
+                    $("#row-id-fileType").show();
+                    // zh: 选择的值为file时才显示
+                    if ($("#node-input-fileType").val() == "file") {
+                        $("#row-id-filter").show();
+                    } else {
+                        $("#row-id-filter").hide();
+                    }
+                } else {
+                    // no checked to hide
+                    $("#row-id-fileType").hide();
+                    $("#row-id-filter").hide();
+                }
+            })
+            // select file type control display
+            $("#node-input-fileType").on("change", (e) => {
+                if (e.target.value == "file") {
+                    $("#row-id-filter").show();
+                }
+                else if (e.target.value == "directory") {
+                    $("#row-id-filter").hide();
+                }
+            })
+            // 
+            $("#node-input-dir").typedInput({
+                // type: "str",
+                types: ["msg", "flow", "global", "str"],
+                typeField: "#node-input-dirType"
+            });
+
+            // en: init
+            // zh: 初始化
+            setTimeout(() => {
+                console.log(this);
+                if (this.useFilter) {
+                    $("#row-id-fileType").show();
+                    if (this.fileType == "file") {
+                        $("#row-id-filter").show();
+                    } else {
+                        $("#row-id-filter").hide();
+                    }
+                } else {
+                    $("#row-id-fileType").hide();
+                    $("#row-id-filter").hide();
+                }
+            }, 0);
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="fs read dir">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.name"></span></label>
+        <!-- <input type="text" id="node-input-name" placeholder="Name"> -->
+        <input type="text" id="node-input-name" data-i18n="[placeholder]fs-read-dir.ui.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-dir"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.dir"></span></label>
+        <input type="text" id="node-input-dir" data-i18n="[placeholder]fs-read-dir.ui.dir">
+        <input type="hidden" id="node-input-dirType">
+    </div>
+    <!-- <div class="form-row">
+        <label for="node-input-withFileTypes"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.withFileTypes"></span></label>
+        <select id="node-input-withFileTypes">
+            <option value="true" data-i18n="[label]fs-read-dir.ui.true"></option>
+            <option value="false" data-i18n="[label]fs-read-dir.ui.false"></option>
+        </select>
+    </div> -->
+    <!-- <div class="form-row">
+        <label for="node-input-recursive"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.recursive"></span></label>
+        <select id="node-input-recursive">
+            <option value="true" data-i18n="[label]fs-read-dir.ui.true"></option>
+            <option value="false" data-i18n="[label]fs-read-dir.ui.false"></option>
+        </select>
+    </div> -->
+    <div class="form-row">
+        <label for="node-input-absolute"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.absolute"></span></label>
+        <input style="width: auto; vertical-align: baseline;" type="checkbox" id="node-input-absolute" value="true" />
+        <label style="vertical-align: middle;" for="node-input-absolute"><span data-i18n="fs-read-dir.ui.use"></span></label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-useFilter"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.useFilter"></span></label>
+        <input style="width: auto; vertical-align: baseline;" type="checkbox" id="node-input-useFilter" value="true" />
+        <label style="vertical-align: middle;" for="node-input-useFilter"><span data-i18n="fs-read-dir.ui.use"></span></label>
+    </div>
+    <div id="row-id-fileType" class="form-row">
+        <label for="node-input-fileType"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.type"></span></label>
+        <select id="node-input-fileType">
+            <option value="file" data-i18n="[label]fs-read-dir.ui.file"></option>
+            <option value="directory" data-i18n="[label]fs-read-dir.ui.directory"></option>
+        </select>
+    </div>
+    <div id="row-id-filter" class="form-row">
+        <label for="node-input-filter"><i class="fa fa-tag"></i> <span data-i18n="fs-read-dir.ui.filter"></span></label>
+        <!-- <input type="text" id="node-input-filter" data-i18n="[placeholder]fs-read-dir.ui.filter"> -->
+        <select id="node-input-filter">
+            <option value="json">JSON</option>
+            <option value="txt">TXT</option>
+        </select>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="fs read dir">
+    <p>Search for all file information in the specified directory</p>
+</script>

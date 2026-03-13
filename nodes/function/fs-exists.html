@@ -1,0 +1,80 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fs exists', {
+        // en: node-red left sidebar category
+        // zh: node-red左边所属分类
+        category: 'sunny nie',
+        // en: node background color
+        // zh: 节点背景颜色
+        color: '#FFCC66',
+        defaults: {
+            name: { value: "fs exists" },
+            path: { value: "" },
+            pathType: { value: "str" },
+            useReplace: { value: false },
+            replaceText: { value: "" },
+            replaceTextType: { value: "str" }
+        },
+        inputs: 1,
+        outputs: 1,
+        // Font Awesome Icons(https://fontawesome.com/v4/icons)
+        icon: "font-awesome/fa-check-square-o",
+        label: function () {
+            return this.name || "fs exists";
+        },
+        oneditprepare: function () {
+            $("#node-input-path").typedInput({
+                types: ["msg", "flow", "global", "str"],
+                typeField: "#node-input-pathType"
+            });
+            $("#node-input-replaceText").typedInput({
+                types: ["msg", "flow", "global", "str"],
+                typeField: "#node-input-replaceTextType"
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="fs exists">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]fs-exists.ui.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-path"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.path"></span></label>
+        <input type="text" id="node-input-path" data-i18n="[placeholder]fs-exists.ui.path">
+        <input type="hidden" id="node-input-pathType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-useReplace"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.useReplace"></span></label>
+        <input style="width: auto; vertical-align: baseline;" type="checkbox" id="node-input-useReplace" value="true" />
+        <label style="vertical-align: middle;" for="node-input-useReplace"><span data-i18n="fs-exists.ui.use"></span></label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-replaceText"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.replaceText"></span></label>
+        <input type="text" id="node-input-replaceText" data-i18n="[placeholder]fs-exists.ui.replaceText">
+        <input type="hidden" id="node-input-replaceTextType">
+    </div>
+    <!-- <div class="form-row">
+        <label for="node-input-useFilter"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.useFilter"></span></label>
+        <input style="width: auto; vertical-align: baseline;" type="checkbox" id="node-input-useFilter" value="true" />
+        <label style="vertical-align: middle;" for="node-input-useFilter"><span data-i18n="fs-exists.ui.use"></span></label>
+    </div>
+    <div id="row-id-fileType" class="form-row">
+        <label for="node-input-fileType"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.type"></span></label>
+        <select id="node-input-fileType">
+            <option value="file" data-i18n="[label]fs-exists.ui.file"></option>
+            <option value="pathectory" data-i18n="[label]fs-exists.ui.pathectory"></option>
+        </select>
+    </div>
+    <div id="row-id-filter" class="form-row">
+        <label for="node-input-filter"><i class="fa fa-tag"></i> <span data-i18n="fs-exists.ui.filter"></span></label>
+        <select id="node-input-filter">
+            <option value="json">JSON</option>
+            <option value="txt">TXT</option>
+        </select>
+    </div> -->
+</script>
+
+<script type="text/html" data-help-name="fs exists">
+    <p>Search for all file information in the specified pathectory</p>
+</script>

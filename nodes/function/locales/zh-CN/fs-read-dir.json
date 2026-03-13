@@ -1,0 +1,22 @@
+{
+    "fs-read-dir": {
+        "info": {
+            "select": "请选择目录"
+        },
+        "ui": {
+            "name": "节点名称",
+            "dir": "文件目录",
+            "withFileTypes": "带文件类型",
+            "recursive": "递归读取",
+            "filter": "筛选出文件",
+            "true": "是",
+            "false": "否",
+            "absolute": "绝对路径",
+            "use": "启用",
+            "useFilter": "启用筛选",
+            "type": "文件类型",
+            "file": "文件",
+            "directory": "目录"
+        }
+    }
+}

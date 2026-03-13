@@ -1,0 +1,31 @@
+{
+  "name": "node-red-contrib-fs-base",
+  "version": "1.0.0",
+  "author": "sunny-nie",
+  "description": "NodeJs FS Base API",
+  "keywords": [
+    "node-red",
+    "node-red-contrib",
+    "node-red-contrib-fs",
+    "node-red-contrib-fs-base",
+    "fs",
+    "fs-base"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "nodes": {
+      "fs-read-dir": "nodes/function/fs-read-dir.js",
+      "fs-exists": "nodes/function/fs-exists.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sunny-nie/node-red-contrib-fs-base"
+  },
+  "homepage": "https://github.com/sunny-nie/node-red-contrib-fs-base",
+  "bugs": "https://github.com/sunny-nie/node-red-contrib-fs-base/issues",
+  "license": "ISC"
+}

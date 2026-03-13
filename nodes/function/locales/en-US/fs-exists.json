@@ -1,0 +1,18 @@
+{
+    "fs-exists": {
+        "info": {
+            "select": "Select"
+        },
+        "ui": {
+            "name": "Name",
+            "path": "Path",
+            "pathType": "Path Type",
+            "true": "True",
+            "false": "False",
+            "use": "Use",
+            "useReplace": "Use Replace",
+            "replaceText": "Replace Text",
+            "replaceTextType": "Replace Text Type"
+        }
+    }
+}

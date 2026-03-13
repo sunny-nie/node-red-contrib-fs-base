@@ -1,0 +1,18 @@
+{
+    "fs-exists": {
+        "info": {
+            "select": "请选择目录"
+        },
+        "ui": {
+            "name": "节点名称",
+            "path": "路径",
+            "pathType": "路径类型",
+            "true": "是",
+            "false": "否",
+            "use": "启用",
+            "useReplace": "启用替换",
+            "replaceText": "替换字符",
+            "replaceTextType": "替换字符类型"
+        }
+    }
+}

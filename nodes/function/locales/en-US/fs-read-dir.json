@@ -1,0 +1,22 @@
+{
+    "fs-read-dir": {
+        "info": {
+            "select": "please select dir"
+        },
+        "ui": {
+            "name": "Name",
+            "dir": "Dir",
+            "withFileTypes": "WithTypes",
+            "recursive": "Recursive",
+            "filter": "Filter",
+            "true": "True",
+            "false": "False",
+            "absolute": "Absolute Path",
+            "use": "Use",
+            "useFilter": "Use Filter",
+            "type": "File Type",
+            "file": "File",
+            "directory": "Directory"
+        }
+    }
+}
