@@ -5,25 +5,21 @@
   "description": "NodeJs FS Base API",
   "keywords": [
     "node-red",
-    "node-red-contrib",
-    "node-red-contrib-fs",
-    "node-red-contrib-fs-base",
-    "fs",
-    "fs-base"
+    "fs"
   ],
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "node-red": {
-    "version": ">=4.1.7",
+    "version": ">=4.0.0",
     "nodes": {
       "fs-read-dir": "nodes/function/fs-read-dir.js",
       "fs-exists": "nodes/function/fs-exists.js"
     }
   },
   "engines": {
-    "node": ">=18.16.1"
+    "node": ">=12.0.0"
   },
   "repository": {
     "type": "git",
