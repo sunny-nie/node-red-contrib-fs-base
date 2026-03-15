@@ -1,0 +1,82 @@
+[
+    {
+        "id": "d80b2b1a5eb8e113",
+        "type": "tab",
+        "label": "流程 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b582bc9018e128f8",
+        "type": "inject",
+        "z": "d80b2b1a5eb8e113",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "9849ca3bf7782247"
+            ]
+        ]
+    },
+    {
+        "id": "9849ca3bf7782247",
+        "type": "fs read dir",
+        "z": "d80b2b1a5eb8e113",
+        "name": "fs read dir",
+        "dir": "/Users/xxx/code/node/plugins/node-red/node-red-contrib-fs-base",
+        "dirType": "str",
+        "absolute": true,
+        "useFilter": true,
+        "filter": "json",
+        "fileType": "file",
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "d2f99fcab0f4276e"
+            ]
+        ]
+    },
+    {
+        "id": "d2f99fcab0f4276e",
+        "type": "debug",
+        "z": "d80b2b1a5eb8e113",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "eaf298d1ec541f10",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-fs-base": "1.0.3"
+        }
+    }
+]
