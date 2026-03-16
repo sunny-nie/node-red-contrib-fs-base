@@ -1,5 +1,5 @@
 {
-    "fs-read-dir": {
+    "fs-unlink": {
         "info": {
             "select": "请选择有效的文件路径"
         },

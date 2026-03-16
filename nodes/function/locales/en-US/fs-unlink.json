@@ -1,5 +1,5 @@
 {
-    "fs-read-dir": {
+    "fs-unlink": {
         "info": {
             "select": "please select a valid file path"
         },
