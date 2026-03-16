@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fs unlink', {
+        // en: node-red left sidebar category
+        // zh: node-red左边所属分类
+        category: 'sunny nie',
+        // en: node background color
+        // zh: 节点背景颜色
+        color: '#FFCC66',
+        defaults: {
+            name: { value: "fs unlink" },
+            file: { value: "" },
+            fileType: { value: "str" }
+        },
+        inputs: 1,
+        outputs: 1,
+        // Font Awesome Icons(https://fontawesome.com/v4/icons)
+        icon: "font-awesome/fa-remove",
+        label: function () {
+            return this.name || "fs unlink";
+        },
+        oneditprepare: function () {
+            $("#node-input-file").typedInput({
+                types: ["msg", "flow", "global", "str"],
+                typeField: "#node-input-fileType"
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="fs unlink">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="fs-unlink.ui.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]fs-unlink.ui.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-file"><i class="fa fa-tag"></i> <span data-i18n="fs-unlink.ui.file"></span></label>
+        <input type="text" id="node-input-file" data-i18n="[placeholder]fs-unlink.ui.file">
+        <input type="hidden" id="node-input-fileType">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="fs unlink">
+    <p data-i18n="fs-unlink.ui.help"></p>
+</script>

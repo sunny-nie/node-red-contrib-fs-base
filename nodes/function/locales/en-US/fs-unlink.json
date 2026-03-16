@@ -1,0 +1,13 @@
+{
+    "fs-read-dir": {
+        "info": {
+            "select": "please select a valid file path"
+        },
+        "ui": {
+            "name": "Name",
+            "file": "File Path",
+            "fileType": "File Type",
+            "help": "Delete files in the specified path"
+        }
+    }
+}
