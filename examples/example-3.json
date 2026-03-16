@@ -1,0 +1,78 @@
+[
+    {
+        "id": "d80b2b1a5eb8e113",
+        "type": "tab",
+        "label": "流程 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1967460eae9349ca",
+        "type": "inject",
+        "z": "d80b2b1a5eb8e113",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 220,
+        "wires": [
+            [
+                "7a2274231466708c"
+            ]
+        ]
+    },
+    {
+        "id": "e958d30832ad877d",
+        "type": "debug",
+        "z": "d80b2b1a5eb8e113",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "7a2274231466708c",
+        "type": "fs unlink",
+        "z": "d80b2b1a5eb8e113",
+        "name": "fs unlink",
+        "file": "/Users/xxx/xxx.png",
+        "fileType": "str",
+        "x": 420,
+        "y": 220,
+        "wires": [
+            [
+                "e958d30832ad877d"
+            ]
+        ]
+    },
+    {
+        "id": "873473839e98fcf0",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-fs-base": "1.0.6"
+        }
+    }
+]
