@@ -1,4 +1,5 @@
 var fs = require("fs");
+var _ = require("lodash");
 
 module.exports = function (RED) {
     function FsExists(config) {
@@ -24,7 +25,9 @@ module.exports = function (RED) {
             if (node.pathType == "str") {
                 path = node.path;
             } else if (node.pathType == "msg") {
-                path = msg[node.path] || undefined;
+                // path = msg[node.path] || undefined;
+                path = _.get(msg, node.path, undefined);
+                console.log(path);
             } else {
                 // node.error(RED._("fs-read-dir.info.select"));
                 node.status({ fill: "red", shape: "dot", text: "fs-read-dir.info.select" });
@@ -49,7 +52,8 @@ module.exports = function (RED) {
                         msg[replaceText] = exists;
                     }
                 } else if (node.replaceTextType == "msg") {
-                    replaceText = msg[node.replaceText].trim();
+                    // replaceText = msg[node.replaceText].trim();
+                    replaceText = _.get(msg, node.replaceText, "").trim();
                     if (replaceText == "") {
                         msg.payload = exists;
                     } else {

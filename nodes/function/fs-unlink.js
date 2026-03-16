@@ -1,5 +1,5 @@
 var fs = require("fs");
-var path = require("path")
+var _ = require("lodash")
 
 module.exports = function (RED) {
     function FsUnlink(config) {
@@ -26,7 +26,8 @@ module.exports = function (RED) {
             if (node.fileType == "str") {
                 file = node.file;
             } else if (node.fileType == "msg") {
-                file = msg[node.file] || undefined;
+                file = _.get(msg, node.file, undefined);
+                console.log(file);
             } else if (node.fileType == "flow") {
                 var flowCtx = node.context().flow;
                 console.log(flowCtx);

@@ -1,5 +1,6 @@
 var fs = require("fs");
-var path = require("path")
+var path = require("path");
+var _ = require("lodash");
 
 module.exports = function (RED) {
     function FsReadDir(config) {
@@ -28,7 +29,8 @@ module.exports = function (RED) {
             if (node.dirType == "str") {
                 dir = node.dir;
             } else if (node.dirType == "msg") {
-                dir = msg[node.dir] || undefined;
+                dir = _.get(msg, node.dir, undefined);
+                console.log(dir);
             } else {
                 // node.error(RED._("fs-read-dir.info.select"));
                 node.status({ fill: "red", shape: "dot", text: "fs-read-dir.info.select" });

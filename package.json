@@ -28,5 +28,8 @@
   },
   "homepage": "https://github.com/sunny-nie/node-red-contrib-fs-base",
   "bugs": "https://github.com/sunny-nie/node-red-contrib-fs-base/issues",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.23"
+  }
 }
