@@ -27,7 +27,10 @@ module.exports = function (RED) {
             } else if (node.pathType == "msg") {
                 // path = msg[node.path] || undefined;
                 path = _.get(msg, node.path, undefined);
-                console.log(path);
+            } else if (node.pathType == "flow") {
+                path = node.context().flow.get(node.path);
+            } else if (node.pathType == "global") {
+                path = node.context().global.get(node.path);
             } else {
                 // node.error(RED._("fs-read-dir.info.select"));
                 node.status({ fill: "red", shape: "dot", text: "fs-read-dir.info.select" });

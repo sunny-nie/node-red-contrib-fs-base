@@ -29,13 +29,18 @@ module.exports = function (RED) {
                 file = _.get(msg, node.file, undefined);
                 console.log(file);
             } else if (node.fileType == "flow") {
-                var flowCtx = node.context().flow;
-                console.log(flowCtx);
+                file = node.context().flow.get(node.file);
+                console.log(file);
             } else if (node.fileType == "global") {
-                var globalCtx = node.context().global;
-                console.log(globalCtx);
+                file = node.context().global.get(node.file);
             } else {
                 // node.error(RED._("fs-unlink.info.select"));
+                node.status({ fill: "red", shape: "dot", text: "fs-unlink.info.select" });
+                return;
+            }
+
+            if (file == undefined) {
+                node.warn(RED._("fs-unlink.info.select"));
                 node.status({ fill: "red", shape: "dot", text: "fs-unlink.info.select" });
                 return;
             }

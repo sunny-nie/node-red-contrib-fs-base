@@ -30,10 +30,19 @@ module.exports = function (RED) {
                 dir = node.dir;
             } else if (node.dirType == "msg") {
                 dir = _.get(msg, node.dir, undefined);
-                console.log(dir);
+            } else if (node.dirType == "flow") {
+                dir = node.context().flow.get(node.dir);
+            } else if (node.dirType == "global") {
+                dir = node.context().global.get(node.dir);
             } else {
                 // node.error(RED._("fs-read-dir.info.select"));
                 node.status({ fill: "red", shape: "dot", text: "fs-read-dir.info.select" });
+                return;
+            }
+
+            console.log(dir);
+            if (dir == undefined) {
+
                 return;
             }
 
