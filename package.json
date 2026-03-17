@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-fs-base",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "author": "sunny-nie",
   "description": "NodeJs FS Base API",
   "keywords": [
