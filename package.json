@@ -25,9 +25,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sunny-nie/node-red-contrib-fs-base"
+    "url": "https://github.com/sunny-nie/node-red-contrib-fs-base/tree/dev"
   },
-  "homepage": "https://github.com/sunny-nie/node-red-contrib-fs-base",
+  "homepage": "https://github.com/sunny-nie/node-red-contrib-fs-base/tree/dev",
   "bugs": "https://github.com/sunny-nie/node-red-contrib-fs-base/issues",
   "license": "ISC",
   "dependencies": {
