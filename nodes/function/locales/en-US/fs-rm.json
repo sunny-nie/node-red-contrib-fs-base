@@ -1,0 +1,16 @@
+{
+    "fs-rm": {
+        "info": {
+            "select": "please select a valid resource path"
+        },
+        "ui": {
+            "name": "Name",
+            "path": "Path",
+            "recursive": "Recursive",
+            "recursiveHelp": "If not enabled, only empty directories or single files can be deleted",
+            "maxRetries": "Max Retries",
+            "retryDelay": "Retry Delay",
+            "help": "Delete resources in the specified path"
+        }
+    }
+}

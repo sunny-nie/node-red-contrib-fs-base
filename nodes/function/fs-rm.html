@@ -1,0 +1,97 @@
+<script type="text/javascript">
+    RED.nodes.registerType('fs rm', {
+        // en: node-red left sidebar category
+        // zh: node-red左边所属分类
+        category: 'sunny nie',
+        // en: node background color
+        // zh: 节点背景颜色
+        color: '#FFCC66',
+        defaults: {
+            // 节点名称
+            name: { value: "fs rm" },
+            // 资源路径
+            path: { value: "" },
+            pathType: { value: "str" },
+            // 是否递归
+            recursive: { value: false },
+            recursiveType: { value: "bool" },
+            // 最大重试次数
+            maxRetries: { value: 0 },
+            maxRetriesType: { value: "num" },
+            // 等待时间
+            retryDelay: { value: 100 },
+            retryDelayType: { value: "num" },
+        },
+        inputs: 1,
+        outputs: 1,
+        // Font Awesome Icons(https://fontawesome.com/v4/icons)
+        icon: "font-awesome/fa-trash",
+        label: function () {
+            return this.name || "fs rm";
+        },
+        oneditprepare: function () {
+            // 资源路径
+            $("#node-input-path").typedInput({
+                types: ["msg", "flow", "global", "str"],
+                typeField: "#node-input-pathType"
+            });
+            // 是否递归
+            $("#node-input-recursive").typedInput({
+                types: ["msg", "flow", "global", "bool"],
+                typeField: "#node-input-recursiveType"
+            });
+            // 重试次数
+            $("#node-input-maxRetries").typedInput({
+                types: ["msg", "flow", "global", "num"],
+                typeField: "#node-input-maxRetriesType"
+            });
+            // 重试等待时间
+            $("#node-input-retryDelay").typedInput({
+                types: ["msg", "flow", "global", "num"],
+                typeField: "#node-input-retryDelayType"
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="fs rm">
+    <!-- en: node name -->
+    <!-- zh: 节点名称 -->
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="fs-rm.ui.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]fs-rm.ui.name">
+    </div>
+    <!-- en: path -->
+    <!-- zh: 资源路径 -->
+    <div class="form-row">
+        <label for="node-input-path"><i class="fa fa-search"></i> <span data-i18n="fs-rm.ui.path"></span></label>
+        <input type="text" id="node-input-path" data-i18n="[placeholder]fs-rm.ui.path">
+        <input type="hidden" id="node-input-pathType">
+    </div>
+    <!-- en: recursive -->
+    <!-- zh: 是否递归 默认值： false -->
+    <div class="form-row">
+        <label data-i18n="[title]fs-rm.ui.recursiveHelp" for="node-input-recursive"><i class="fa fa-refresh"></i> <span data-i18n="fs-rm.ui.recursive"></span></label>
+        <input type="text" id="node-input-recursive" data-i18n="[placeholder]fs-rm.ui.recursive">
+        <input type="hidden" id="node-input-recursiveType">
+    </div>
+    <!-- en: maxRetries -->
+    <!-- zh: 重试次数, 递归不为True此项失效, 默认值： 0 -->
+    <div class="form-row">
+        <label for="node-input-maxRetries"><i class="fa fa-recycle"></i> <span data-i18n="fs-rm.ui.maxRetries"></span></label>
+        <input type="text" id="node-input-maxRetries" data-i18n="[placeholder]fs-rm.ui.maxRetries">
+        <input type="hidden" id="node-input-maxRetriesType">
+    </div>
+    <!-- en: retryDelay -->
+    <!-- zh: 重试之间等待的时间（毫秒）默认值： 100毫秒 -->
+    <div class="form-row">
+        <label for="node-input-retryDelay"><i class="fa fa-clock-o"></i> <span data-i18n="fs-rm.ui.retryDelay"></span></label>
+        <input type="text" id="node-input-retryDelay" data-i18n="[placeholder]fs-rm.ui.retryDelay">
+        <span>毫秒</span>
+        <input type="hidden" id="node-input-retryDelayType">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="fs rm">
+    <p data-i18n="fs-rm.ui.help"></p>
+</script>

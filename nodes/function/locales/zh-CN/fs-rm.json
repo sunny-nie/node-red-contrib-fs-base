@@ -1,0 +1,16 @@
+{
+    "fs-rm": {
+        "info": {
+            "select": "请选择有效的资源路径"
+        },
+        "ui": {
+            "name": "节点名称",
+            "path": "资源路径",
+            "recursive": "是否递归",
+            "recursiveHelp": "若不启用则只能删除空目录或单文件",
+            "maxRetries": "重试次数",
+            "retryDelay": "重试时间",
+            "help": "删除指定路径的资源"
+        }
+    }
+}

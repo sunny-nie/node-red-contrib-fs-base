@@ -16,7 +16,8 @@
     "nodes": {
       "fs-read-dir": "nodes/function/fs-read-dir.js",
       "fs-exists": "nodes/function/fs-exists.js",
-      "fs-unlink": "nodes/function/fs-unlink.js"
+      "fs-unlink": "nodes/function/fs-unlink.js",
+      "fs-rm": "nodes/function/fs-rm.js"
     }
   },
   "engines": {
