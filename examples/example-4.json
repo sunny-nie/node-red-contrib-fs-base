@@ -1,0 +1,84 @@
+[
+    {
+        "id": "d80b2b1a5eb8e113",
+        "type": "tab",
+        "label": "流程 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "921418ee5b30ea24",
+        "type": "fs rm",
+        "z": "d80b2b1a5eb8e113",
+        "name": "fs rm",
+        "path": "",
+        "pathType": "str",
+        "recursive": false,
+        "recursiveType": "bool",
+        "maxRetries": 0,
+        "maxRetriesType": "num",
+        "retryDelay": 100,
+        "retryDelayType": "num",
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "8d015269bbdbf7a0"
+            ]
+        ]
+    },
+    {
+        "id": "b83f25c35ff471a1",
+        "type": "inject",
+        "z": "d80b2b1a5eb8e113",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "921418ee5b30ea24"
+            ]
+        ]
+    },
+    {
+        "id": "8d015269bbdbf7a0",
+        "type": "debug",
+        "z": "d80b2b1a5eb8e113",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "653039e273b228c4",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-fs-base": "1.0.10"
+        }
+    }
+]
