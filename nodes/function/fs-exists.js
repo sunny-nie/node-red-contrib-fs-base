@@ -16,7 +16,7 @@ module.exports = function (RED) {
             // console.log(msg);
             node.warn(msg);
             // this node info
-            console.log(node)
+            // console.log(node)
             // node.warn(node);
 
             // msg.payload = [];

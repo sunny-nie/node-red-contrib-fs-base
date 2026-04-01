@@ -13,7 +13,7 @@ module.exports = function (RED) {
             // console.log(msg);
             node.warn(msg);
             // this node info
-            console.log(node)
+            // console.log(node)
             // node.warn(node);
 
             // msg.payload = [];
@@ -27,10 +27,10 @@ module.exports = function (RED) {
                 file = node.file;
             } else if (node.fileType == "msg") {
                 file = _.get(msg, node.file, undefined);
-                console.log(file);
+                // console.log(file);
             } else if (node.fileType == "flow") {
                 file = node.context().flow.get(node.file);
-                console.log(file);
+                // console.log(file);
             } else if (node.fileType == "global") {
                 file = node.context().global.get(node.file);
             } else {
@@ -56,7 +56,7 @@ module.exports = function (RED) {
 
             if (!stat.isFile()) {
                 result.message = "please select a valid file path";
-                console.log(RED._("fs-unlink.info.select"));
+                // console.log(RED._("fs-unlink.info.select"));
                 return;
             }
 

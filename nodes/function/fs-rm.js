@@ -19,7 +19,7 @@ module.exports = function (RED) {
             // prev node's msg
             node.warn(msg);
             // this node info
-            console.log(node);
+            // console.log(node);
 
             // msg.payload = [];
             var result = {
@@ -32,17 +32,17 @@ module.exports = function (RED) {
                 path = node.path;
             } else if (node.pathType == "msg") {
                 path = _.get(msg, node.path, undefined);
-                console.log(path);
+                // console.log(path);
             } else if (node.pathType == "flow") {
                 path = node.context().flow.get(node.path);
-                console.log(path);
+                // console.log(path);
             } else if (node.pathType == "global") {
                 path = node.context().global.get(node.path);
             } else {
                 node.status({ fill: "red", shape: "dot", text: "fs-rm.info.select" });
                 return;
             }
-            console.log(`path: ${path}`);
+            // console.log(`path: ${path}`);
 
             if (path == undefined) {
                 node.warn(RED._("fs-rm.info.select"));
@@ -63,17 +63,17 @@ module.exports = function (RED) {
                 recursive = node.recursive;
             } else if (node.recursiveType == "msg") {
                 recursive = _.get(msg, node.recursive, false);
-                console.log(recursive);
+                // console.log(recursive);
             } else if (node.recursiveType == "flow") {
                 recursive = node.context().flow.get(node.recursive);
-                console.log(recursive);
+                // console.log(recursive);
             } else if (node.recursiveType == "global") {
                 recursive = node.context().global.get(node.recursive);
             } else {
                 recursive = false;
             }
             recursive = Boolean(recursive);
-            console.log(`recursive: ${recursive}`);
+            // console.log(`recursive: ${recursive}`);
 
             
             // 重试次数
@@ -82,10 +82,10 @@ module.exports = function (RED) {
                 maxRetries = node.maxRetries;
             } else if (node.maxRetriesType == "msg") {
                 maxRetries = _.get(msg, node.maxRetries, 0);
-                console.log(maxRetries);
+                // console.log(maxRetries);
             } else if (node.maxRetriesType == "flow") {
                 maxRetries = node.context().flow.get(node.maxRetries);
-                console.log(maxRetries);
+                // console.log(maxRetries);
             } else if (node.maxRetriesType == "global") {
                 maxRetries = node.context().global.get(node.maxRetries);
             } else {
@@ -96,7 +96,7 @@ module.exports = function (RED) {
             if (Number.isNaN(maxRetries) || maxRetries < 0) {
                 maxRetries = 0;
             }
-            console.log(`maxRetries: ${maxRetries}`);
+            // console.log(`maxRetries: ${maxRetries}`);
 
             // 重试时间
             var retryDelay = undefined;
@@ -104,10 +104,10 @@ module.exports = function (RED) {
                 retryDelay = node.retryDelay;
             } else if (node.retryDelayType == "msg") {
                 retryDelay = _.get(msg, node.retryDelay, 100);
-                console.log(retryDelay);
+                // console.log(retryDelay);
             } else if (node.retryDelayType == "flow") {
                 retryDelay = node.context().flow.get(node.retryDelay);
-                console.log(retryDelay);
+                // console.log(retryDelay);
             } else if (node.retryDelayType == "global") {
                 retryDelay = node.context().global.get(node.retryDelay);
             } else {
@@ -119,7 +119,7 @@ module.exports = function (RED) {
             if (Number.isNaN(retryDelay) || retryDelay < 100) {
                 retryDelay = 100;
             }
-            console.log(`retryDelay: ${retryDelay}`);
+            // console.log(`retryDelay: ${retryDelay}`);
 
             try {
                 fs.rmSync(path, { recursive, maxRetries, retryDelay });

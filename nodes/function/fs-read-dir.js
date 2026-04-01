@@ -20,7 +20,7 @@ module.exports = function (RED) {
             // console.log(msg);
             node.warn(msg);
             // this node info
-            console.log(node)
+            // console.log(node)
             // node.warn(node);
 
             // msg.payload = [];
@@ -40,7 +40,7 @@ module.exports = function (RED) {
                 return;
             }
 
-            console.log(dir);
+            // console.log(dir);
             if (dir == undefined) {
 
                 return;
@@ -68,7 +68,7 @@ module.exports = function (RED) {
                 withFileTypes: true
             });
             var datas = [];
-            console.log(dirents);
+            // console.log(dirents);
             datas = dirents.map(d => {
                 return ({
                     path: node.absolute ? path.resolve(dir, d.name) : d.name,
